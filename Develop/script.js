@@ -33,18 +33,27 @@ var arrayCharacters = [["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "
 
 // generatePassword function
 
-function generatePassword()
-  {
+function generatePassword() {
+
     var passwordLength = prompt("How long do you want your password to be?");
     // ask user input about how long the password should be.  
 
+    passwordLength = parseInt(passwordLength);
+    // changes the value of string to value of number
+
+    if (!passwordLength) {
+      alert("Please enter a valid number.");
+      return generatePassword();
+    }
+  // Avoid an error if user inputs something other than a number
+
     if (passwordLength<8 || passwordLength>128) {
-      confirm("Please select a password length between 8 and 128 characters");
+      alert("Please select a password length between 8 and 128 characters");
       return generatePassword();
     }
     // If the user chooses a password outside the character range, ask for a new length. 
 
-    if (!passwordLength) return;
+    if (!passwordLength) return "No password";
     // If the user doesn't add a length and hits cancel, end the program immediately. 
 
     // Ask the user if they want to include the different types of characters.
@@ -84,7 +93,7 @@ function generatePassword()
 
     // newPassword()
 
-   
+
   }
 
 
@@ -114,3 +123,6 @@ function output(){
 // // Math.random generates a different number every time, but it's a decimal, 
 // // so Math.floor rounds it down. 
 // // 26 because that's how many letters there are in the latin alphabet.
+
+
+
