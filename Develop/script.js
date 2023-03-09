@@ -67,7 +67,7 @@ function generatePassword() {
     }
     // If the user chooses a password outside the character range, ask for a new length. 
 
-    if (!passwordLength) return "No password";
+    // if (!passwordLength) return "No password";
     // If the user doesn't add a length and hits cancel, end the program immediately. 
 
     // Ask the user if they want to include the different types of characters.
@@ -102,6 +102,12 @@ function generatePassword() {
 
     }
 
+    if ((!upperChoice) && (!lowerChoice) && (!numberChoice) && (!specialChoice)) {
+      alert("Pick at least one type of characters for your password.");
+      return generatePassword();
+    }
+    // To validate that at least one character type is selected.
+    
     console.log(allCharacters);
 
 
@@ -117,12 +123,12 @@ function generatePassword() {
     // so Math.floor rounds it down.
   
     }
-
+    console.log (password);
     return password;
 
     }
 
-    // generatePassword();
+    generatePassword();
 
 
     // function newPassword(){
