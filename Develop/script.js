@@ -17,19 +17,33 @@ generateBtn.addEventListener("click", writePassword);
 // Create different arrays for different character types 
 
 var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var numbersList = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-var specialCharacters = ["!", "@", "#", "?", "$", ":", ";"];
-
-var arrayCharacters = [["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"],
-["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
-["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
-["!", "@", "#", "?", "$", ":", ";"] ]
-
-
-// ["!", ' " ', "#", "$", "%", "&", "'", "(", ")", 
-// "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", 
-// "\", "]", "^", "_", "`", "{", "|", "}", "~"];
+var specialCharacters = [
+  '@',
+  '%',
+  '+',
+  '\\',
+  '/',
+  "'",
+  '!',
+  '#',
+  '$',
+  '^',
+  '?',
+  ':',
+  ',',
+  ')',
+  '(',
+  '}',
+  '{',
+  ']',
+  '[',
+  '~',
+  '-',
+  '_',
+  '.',
+];
 
 // generatePassword function
 
@@ -61,29 +75,55 @@ function generatePassword() {
     var upperChoice = confirm("Include uppercase letters?");
     var lowerChoice = confirm("Include lowercase letters?");
     var numberChoice = confirm("Include numbers?");
-    var symbolsChoice = confirm("Include special characters?");
+    var specialChoice = confirm("Include special characters?");
 
-    // if (upperChoice) 
-
-    
-// I want a for loop for the length of characters chosen by the user, 
-// that will choose random characters from each applicable category. 
-
-// aND IF for if the user chose that character type, add it in the for loop 
-  
+    var allCharacters = [];
+    // allCharacters array to create an array of arrays 
+    // based on user's choice.
 
 
-// Math.random generates a different number every time, but it's a decimal, 
-// so Math.floor rounds it down. 
+    if (upperChoice) {
+      allCharacters = allCharacters.concat(upperCase);
 
-    for (var i=0; i < passwordLength; i++) {
-      var randomCharacter = Math.floor(Math.random()*arrayCharacters.length);
-      // var randomUpper = Math.floor(Math.random()*upperCase.length);
-      // var randomLower = Math.floor(Math.random()*lowerCase.length);
-      // var randomNumber = Math.floor(Math.random()*numbersList.length);
-      // var randomSymbol = Math.floor(Math.random()*specialCharacters.length);
-      console.log(randomCharacter);
     }
+
+    if (lowerChoice) {
+      allCharacters = allCharacters.concat(lowerCase);
+
+    }
+
+    if (numberChoice) {
+      allCharacters = allCharacters.concat(numbersList);
+
+    }
+
+    if (specialChoice) {
+      allCharacters = allCharacters.concat(specialCharacters);
+
+    }
+
+    console.log(allCharacters);
+
+
+    for ( var i=0; i <= passwordLength; i++) {
+      var passwordRandom = Math.floor(Math.random()*allCharacters.length);
+      var passwordItems = allCharacters[passwordRandom];
+      var password = (password += passwordItems);
+    // created a for loop to get characters from allCharacters
+    // as many as the passwordLength, and add it to the password
+    // to then return the result of my code.
+
+    // Math.random generates a different number every time, but it's a decimal, 
+    // so Math.floor rounds it down.
+  
+    }
+
+    return password;
+
+    }
+
+    // generatePassword();
+
 
     // function newPassword(){
     //   var secondPass = confirm("Would you like to crete a second password?");
@@ -94,35 +134,14 @@ function generatePassword() {
     // newPassword()
 
 
-  }
-
-
-function output(){
-  alert()
-}
+  
 
 
 
-// // Functions that will generate random letters, numbers, symbols
-
-// function randomNumber() {
-//   // return (Math.floor(Math.random()*26));
+// function output(){
+//   alert("Your password is " + password);
 // }
 
-// function randomUppercase() {
-//   return
-// }
 
-// function randomLowercase() {
-//   return
-// }
-
-// function randomSymbol() {
-//   return
-// }
-// // Math.random generates a different number every time, but it's a decimal, 
-// // so Math.floor rounds it down. 
-// // 26 because that's how many letters there are in the latin alphabet.
-
-
+// output()
 
