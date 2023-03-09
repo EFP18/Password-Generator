@@ -52,22 +52,25 @@ function generatePassword() {
     var passwordLength = prompt("How long do you want your password to be?");
     // ask user input about how long the password should be.  
 
-    passwordLength = parseInt(passwordLength);
+    // passwordLength = parseInt(passwordLength);
     // changes the value of string to value of number
 
-    if (!passwordLength) {
+    if (!passwordLength) {alert("No password")} 
+    else if (
+      isNaN(passwordLength)) {
       alert("Please enter a valid number.");
-      return generatePassword();
+      generatePassword();
     }
+  
   // Avoid an error if user inputs something other than a number
 
     if (passwordLength<8 || passwordLength>128) {
       alert("Please select a password length between 8 and 128 characters");
-      return generatePassword();
+      generatePassword();
     }
     // If the user chooses a password outside the character range, ask for a new length. 
 
-    // if (!passwordLength) return "No password";
+    
     // If the user doesn't add a length and hits cancel, end the program immediately. 
 
     // Ask the user if they want to include the different types of characters.
@@ -104,17 +107,20 @@ function generatePassword() {
 
     if ((!upperChoice) && (!lowerChoice) && (!numberChoice) && (!specialChoice)) {
       alert("Pick at least one type of characters for your password.");
-      return generatePassword();
+      generatePassword();
     }
     // To validate that at least one character type is selected.
     
     console.log(allCharacters);
 
+    var password = [];
 
     for ( var i=0; i <= passwordLength; i++) {
       var passwordRandom = Math.floor(Math.random()*allCharacters.length);
       var passwordItems = allCharacters[passwordRandom];
-      var password = (password += passwordItems);
+      // var password = (password += passwordItems);
+      var password = password.concat(passwordItems);
+
     // created a for loop to get characters from allCharacters
     // as many as the passwordLength, and add it to the password
     // to then return the result of my code.
@@ -124,23 +130,10 @@ function generatePassword() {
   
     }
     console.log (password);
-    return password;
+    return password.join("");
 
     }
 
-    generatePassword();
-
-
-    // function newPassword(){
-    //   var secondPass = confirm("Would you like to crete a second password?");
-    //   return generatePassword();
-      
-    // }
-
-    // newPassword()
-
-
-  
 
 
 
