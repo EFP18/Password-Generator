@@ -52,26 +52,25 @@ function generatePassword() {
     var passwordLength = prompt("How long do you want your password to be?");
     // ask user input about how long the password should be.  
 
-    // passwordLength = parseInt(passwordLength);
-    // changes the value of string to value of number
+    if (!passwordLength) { alert("No password.");
+      return;
+    }    
+        // If the user doesn't add a length and hits cancel, end the program immediately. 
 
-    if (!passwordLength) {alert("No password")} 
-    else if (
-      isNaN(passwordLength)) {
+    
+    if (isNaN(passwordLength)) {
       alert("Please enter a valid number.");
-      generatePassword();
+      return generatePassword();
     }
-  
-  // Avoid an error if user inputs something other than a number
+      // Avoid an error if user inputs something other than a number
+
 
     if (passwordLength<8 || passwordLength>128) {
       alert("Please select a password length between 8 and 128 characters");
-      generatePassword();
+      return generatePassword();
     }
-    // If the user chooses a password outside the character range, ask for a new length. 
+        // If the user chooses a password outside the character range, ask for a new length. 
 
-    
-    // If the user doesn't add a length and hits cancel, end the program immediately. 
 
     // Ask the user if they want to include the different types of characters.
     // Log their response in a variable. 
@@ -105,20 +104,20 @@ function generatePassword() {
 
     }
 
+    console.log(allCharacters);
+
+
     if ((!upperChoice) && (!lowerChoice) && (!numberChoice) && (!specialChoice)) {
       alert("Pick at least one type of characters for your password.");
-      generatePassword();
+      return generatePassword();
     }
     // To validate that at least one character type is selected.
     
-    console.log(allCharacters);
-
     var password = [];
 
-    for ( var i=0; i <= passwordLength; i++) {
+    for ( var i=0; i < passwordLength; i++) {
       var passwordRandom = Math.floor(Math.random()*allCharacters.length);
       var passwordItems = allCharacters[passwordRandom];
-      // var password = (password += passwordItems);
       var password = password.concat(passwordItems);
 
     // created a for loop to get characters from allCharacters
@@ -129,18 +128,10 @@ function generatePassword() {
     // so Math.floor rounds it down.
   
     }
-    console.log (password);
+
+
+    console.log(password.join(""));
     return password.join("");
 
     }
-
-
-
-
-// function output(){
-//   alert("Your password is " + password);
-// }
-
-
-// output()
 
