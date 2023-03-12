@@ -1,6 +1,6 @@
 # Password-Generator
 
-Link: https://github.com/EFP18/Password-Generator
+Link: https://efp18.github.io/Password-Generator/
 
 ![Screenshot](./Assets/03-javascript-homework-demo.png)
 
