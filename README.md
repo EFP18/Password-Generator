@@ -11,11 +11,3 @@ In order to write this code, I had to create a function with JavaScript and link
 In order to create this algorithm, I had to create several if statements to make sure that the user inputs the write character, in this case a number, for the password length, and not a letter or a symbol that would return a potential error. 
 Additionally, I created a prompt for every choice that the user is given, which I then concatenated into an array that was pulling the data from individual character arrays. Then, with the help of Math.floor and Math.random, the code picked randomly the number of password length requested items from that large array, which I then again concatenated and printed with the help of join("").
 
-You are required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
-- - -
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
