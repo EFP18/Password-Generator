@@ -4,7 +4,7 @@ Link: https://github.com/EFP18/Password-Generator
 
 ![Screenshot](./Assets/03-javascript-homework-demo.png)
 
-This password generator takes an keyboard input regarding the length of a password, and then following some prompts, the user can choose what characters he wants to include in his code, so that the password generator can provide him with a passphrase. 
+This password generator takes a keyboard input regarding the length of a password, and then following some prompts, the user can choose what characters he wants to include in his code, so that the password generator can provide him with a passphrase. 
 
 In order to write this code, I had to create a function with JavaScript and link it to the pre-existing CSS and HTML files. 
 
